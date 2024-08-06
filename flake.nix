@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +19,12 @@
         modules = [
           ./machine/common.nix
           home-manager.nixosModules.home-manager
-          { home-manager.users.mgtown = import ./home/home.nix; }
+          { 
+            home-manager.users = {
+              tsubaki = { imports = [ ./home/home.nix ]; };
+              mgtown = { imports = [ ./home/home.nix ./atoms/java.nix ]; };
+            };
+          }
         ];
       };
     };
