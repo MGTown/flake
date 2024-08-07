@@ -17,12 +17,12 @@
       nixosConfigurations.physical-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machine/common.nix
+          ./common.nix
           home-manager.nixosModules.home-manager
           { 
             home-manager.users = {
               tsubaki = { imports = [ ./home/home.nix ]; };
-              mgtown = { imports = [ ./home/home.nix ./atoms/java.nix ]; };
+              mgtown = { imports = [ ./home/home.nix ./machine/java.nix ]; };
             };
           }
         ];
