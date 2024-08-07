@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./atoms/kernel.nix
-    ./atoms/nix.nix
+    ./settings/kernel.nix
+    ./settings/nix.nix
 
     ./machine/firewall.nix
     ./machine/disks.nix
