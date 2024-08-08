@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   boot = {
     # Use latest linux xanmod kernel.
